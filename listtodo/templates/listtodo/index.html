@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do</title>
-</head>
-<body>
-    <h1>To do list</h1>
-</body>
-</html>
+{% extends "listtodo/layout.html" %}
+
+{% block body %}
+<ul>
+    {% for todo in todos %}
+    <li>{{todo}}</li>
+    {% empty %}
+    <p>No tasks</p>
+    {% endfor %}
+</ul>
+<a href="{% url 'listtodo:add_task' %}">Add New Task</a>
+{% endblock %}
